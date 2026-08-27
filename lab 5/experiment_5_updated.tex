@@ -505,19 +505,21 @@ The misclassified images reveal that errors predominantly arise from challenging
 \section*{13. Overall Results}
 
 \begin{center}
-\begin{tabular}{|l|c|c|c|c|}
+\begin{tabular}{|l|c|c|c|}
 \hline
-Configuration & CV Accuracy (\%) & CV SD (\%) & Test Accuracy (\%) & Training Time (s)\\
+Configuration & Best Val.\ Accuracy (\%) & Test Accuracy (\%) & Training Time (s)\\
 \hline
-Baseline              & --    & --   & --    & 80.07 \\
-Best Initialization (Zero)  & --    & --   & --    & 70.28 \\
-Best Regularization (L2)    & --    & --   & --    & 70.09 \\
-Best Optimizer (Adam)       & --    & --   & --    & 69.87 \\
-Best Hyperparameters (C1)   & 90.15 & 0.96 & 89.34 & 73.92 \\
-Fine-Tuned Model            & --    & --   & --    & 77.61 \\
+Baseline                      & 92.12                & --    & 80.07 \\
+Best Initialization (Zero)    & 92.93                & --    & 70.28 \\
+Best Regularization (L2)      & 93.07                & --    & 70.09 \\
+Best Optimizer (Adam)         & 91.71                & --    & 69.87 \\
+Best Hyperparameters (C1)$^*$ & $90.15 \pm 0.96$     & 89.34 & 73.92 \\
+Fine-Tuned Model              & 75.54                & --    & 77.61 \\
 \hline
 \end{tabular}
 \end{center}
+
+\noindent\small$^*$5-fold CV mean $\pm$ SD; all other rows report single-run best validation accuracy.
 
 \textbf{Justification:} C1\_Baseline was selected as the final configuration because it achieves the highest mean CV accuracy (90.15\%) with the lowest standard deviation (0.96\%), indicating both high performance and low variability across folds. Its test accuracy of 89.34\% closely matches the CV estimate, confirming that no overfitting to the validation set occurred. Computationally, its training time of 73.9 seconds is moderate, significantly faster than approaches requiring fine-tuning of the full backbone.
 
